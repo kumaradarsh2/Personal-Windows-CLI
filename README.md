@@ -150,5 +150,4 @@ Keep things simple. Prefer fast commands and small utilities over repetitive GUI
 This is a personal collection of scripts built around the tools I actually use.
 
 ## License
-
-Choose a license before publishing this project publicly, especially if you intend to allow others to reuse or modify the scripts.
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute these scripts in accordance with its terms.
