@@ -81,7 +81,7 @@ open i chatgpt
 Search YouTube and play a video directly through MPV:
 
 ```bat
-stream aashiq banaya
+stream dhurandar trailer 
 ```
 
 Play audio without opening a video window:
