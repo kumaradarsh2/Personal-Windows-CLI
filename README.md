@@ -1,39 +1,43 @@
-
 # Personal Windows CLI
 
-A collection of lightweight Windows command-line utilities built with batch scripts (`.cmd`) to simplify everyday tasks.
+A collection of lightweight Windows command-line utilities built with batch scripts (`.cmd` and `.bat`) to simplify everyday tasks.
 
-Instead of opening multiple applications and navigating through GUIs, I use short terminal commands to search the web, stream music and videos, manage software, and launch applications.
+Search the web, launch applications, stream media, download videos, manage software, and track live Twitch streams â€” all through short terminal commands.
+
+Built around a simple philosophy: **keep things minimal, practical, and fast.**
 
 ## Features
 
-- **Web Search** ¿ Search Google, YouTube, YouTube Music, GitHub, Reddit, Bing, Google Images, Google Maps, and Wikipedia.
-- **Website Launcher** ¿ Open frequently used websites with short commands, including support for Incognito mode.
-- **Media Streaming** ¿ Stream YouTube videos directly through MPV without intentionally downloading the entire video.
-- **Music Playback** ¿ Search and play YouTube audio directly from the terminal.
-- **Video Downloads** ¿ Download videos using `yt-dlp`, with options for controlling format and quality.
-- **Media Playback** ¿ Play local media using MPV or VLC, including fullscreen and floating-window playback.
-- **Media Inspection** ¿ Inspect video metadata and available download formats.
-- **Package Management** ¿ Install applications and upgrade packages using `winget`.
-- **Quick Launchers** ¿ Open Chrome, Telegram, YouTube, and other frequently used applications.
+- **Web Search** â€” Search Google, YouTube, YouTube Music, GitHub, Reddit, Bing, Google Images, Google Maps, and Wikipedia.
+- **Website Launcher** â€” Open frequently used websites with short commands, including Incognito mode.
+- **Media Streaming** â€” Stream online videos through MPV using `yt-dlp`.
+- **Music Playback** â€” Search for and play YouTube audio directly from the terminal.
+- **Video Downloads** â€” Download media with options for selecting formats and quality.
+- **Media Playback** â€” Play local media using MPV or VLC, including fullscreen and floating-window playback.
+- **Media Inspection** â€” Inspect available formats and media information.
+- **Twitch Utilities** â€” Launch Twitch streams and track the 20 most-watched live streams worldwide.
+- **Package Management** â€” Install and upgrade applications using `winget`.
+- **Quick Launchers** â€” Open frequently used applications and websites through short commands.
 
 ## Requirements
 
 - Windows
-- Command Prompt (`cmd.exe`)
+- Command Prompt (`cmd.exe`) and Windows PowerShell
 - [MPV](https://mpv.io/)
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp)
-- [FFmpeg](https://ffmpeg.org/) (for supported media processing and format merging)
+- [FFmpeg](https://ffmpeg.org/) for supported media processing and format merging
 - [Windows Package Manager (`winget`)](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
-- Google Chrome and VLC for the corresponding commands
+- Google Chrome and VLC for their respective commands
+- Twitch CLI for Twitch stream playback
+- Twitch Developer API credentials for the live-stream tracker
 
-Some commands require only a subset of these tools.
+Individual commands require only the tools relevant to their functionality.
 
 ## Commands
 
-### Search
+### Web Search
 
-Search the web directly from the terminal.
+Search different platforms directly from the terminal.
 
 ```bat
 search google how to learn Python
@@ -46,7 +50,7 @@ search maps coffee shops
 search wiki Alan Turing
 ```
 
-Incognito search is supported:
+Incognito search is also supported:
 
 ```bat
 search yt i lofi music
@@ -54,11 +58,11 @@ search google i Python tutorials
 search wiki i Alan Turing
 ```
 
-Use `search help` to view available commands and aliases.
+Run `search help` to view available commands and aliases.
 
 ### Website Launcher
 
-Open frequently used websites directly:
+Open frequently used websites:
 
 ```bat
 open youtube
@@ -68,7 +72,7 @@ open gmail
 open calendar
 ```
 
-Incognito mode:
+Open websites in Incognito mode:
 
 ```bat
 open i youtube
@@ -78,10 +82,10 @@ open i chatgpt
 
 ### Media Streaming
 
-Search YouTube and play a video directly through MPV:
+Search for online videos and play them through MPV:
 
 ```bat
-stream dhurandar trailer 
+stream dhurandar trailer
 ```
 
 Play audio without opening a video window:
@@ -90,17 +94,41 @@ Play audio without opening a video window:
 music kalyani
 ```
 
-These commands use `yt-dlp` integration with MPV to resolve and play online media streams.
-
 ### Downloads and Media Utilities
 
-The toolkit also includes commands for downloading media, selecting video quality, inspecting available formats, and playing local files.
+The toolkit includes commands for downloading media, selecting quality, inspecting formats, and playing local files.
 
-Refer to the individual scripts for their exact arguments and options.
+| Command | Purpose |
+|---|---|
+| `download` | Download media |
+| `download-bypass` | Alternative download workflow |
+| `quality` | Media quality and format selection |
+| `play` | Media playback |
+| `music` | Audio playback |
+| `stream` | Online video streaming |
+| `vlc` | Launch VLC |
+| `youtube` | YouTube shortcut |
+| `ytquality` | YouTube quality utility |
+
+Refer to the individual scripts for supported arguments and options.
+
+### Twitch Utilities
+
+The toolkit includes utilities for Twitch stream playback and live-stream discovery.
+
+| Command | Purpose |
+|---|---|
+| `twitch` | Launch Twitch streams through the Twitch CLI |
+| `twitch-vod` | Twitch VOD utility |
+| `twitch-live` | Display the top 20 live Twitch streams worldwide |
+
+The live tracker displays streamer names, viewer counts, and categories. It refreshes every 30 seconds using the Twitch Helix API.
+
+The live tracker requires Twitch Developer API credentials. Keep client secrets and access tokens private; never commit them to the repository.
 
 ### Software Management
 
-Install a package using its exact `winget` package ID:
+Install applications using their `winget` package IDs:
 
 ```bat
 install Git.Git
@@ -112,42 +140,59 @@ Upgrade installed packages:
 update
 ```
 
-Check each script's help text or source for additional supported options.
+### Quick Launchers
+
+Launch frequently used applications:
+
+```bat
+chrome
+telegram
+```
+
+Check the individual scripts for additional functionality.
 
 ## Project Structure
 
 ```text
 bin/
-¿¿¿ chrome.cmd
-¿¿¿ download-bypass.cmd
-¿¿¿ download.cmd
-¿¿¿ install.cmd
-¿¿¿ music.cmd
-¿¿¿ open.cmd
-¿¿¿ play.cmd
-¿¿¿ quality.cmd
-¿¿¿ search.cmd
-¿¿¿ stream.cmd
-¿¿¿ telegram.cmd
-¿¿¿ update.cmd
-¿¿¿ vlc.cmd
-¿¿¿ youtube.cmd
-¿¿¿ ytquality.cmd
+â”œâ”€â”€ chrome.cmd
+â”œâ”€â”€ download-bypass.cmd
+â”œâ”€â”€ download.cmd
+â”œâ”€â”€ install.cmd
+â”œâ”€â”€ music.cmd
+â”œâ”€â”€ open.cmd
+â”œâ”€â”€ play.cmd
+â”œâ”€â”€ quality.cmd
+â”œâ”€â”€ search.cmd
+â”œâ”€â”€ stream.cmd
+â”œâ”€â”€ telegram.cmd
+â”œâ”€â”€ twitch-live.cmd
+â”œâ”€â”€ twitch-vod.cmd
+â”œâ”€â”€ twitch.cmd
+â”œâ”€â”€ update.cmd
+â”œâ”€â”€ vlc.cmd
+â”œâ”€â”€ youtube.cmd
+â””â”€â”€ ytquality.cmd
 ```
 
 ## Setup
 
 1. Install the required applications and command-line utilities.
-2. Place the `.cmd` scripts in a directory such as `C:\Users\<username>\bin`.
+2. Place the scripts in a directory such as `C:\Users\<username>\bin`.
 3. Add that directory to your Windows `PATH`.
-4. Open a new Command Prompt window.
+4. Open a new terminal window.
 5. Run the commands from any working directory.
+
+Some utilities may require additional configuration, credentials, or environment variables.
 
 ## Philosophy
 
-Keep things simple. Prefer fast commands and small utilities over repetitive GUI workflows.
+Keep things simple.
+
+Prefer short commands and small utilities over repetitive GUI workflows. Use the tools that work, avoid unnecessary complexity, and keep everyday tasks accessible from the terminal.
 
 This is a personal collection of scripts built around the tools I actually use.
 
 ## License
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute these scripts in accordance with its terms.
+
+This project is licensed under the [MIT License](LICENSE).
