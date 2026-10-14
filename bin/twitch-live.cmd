@@ -16,8 +16,8 @@ exit /b
 # TWITCH LIVE TRACKER
 # ==========================================
 
-$ClientId = 'x5ldumgxmpc17mcusjbz24a7ckkgij'
-$ClientSecret = 'h3hpl2h4ueo4pj7hfd9kjm95b1rifz'
+$ClientId = 'Your Client ID Here' 
+$ClientSecret = 'Your Client Secret Here'
 
 $RefreshSeconds = 30
 $ApiUrl = 'https://api.twitch.tv/helix/streams?first=20'
