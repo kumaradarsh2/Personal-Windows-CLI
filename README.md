@@ -80,19 +80,21 @@ open i github
 open i chatgpt
 ```
 
-### Media Streaming
+### YouTube Streaming
 
-Search for online videos and play them through MPV:
+Search for YouTube videos and play them directly through MPV without intentionally downloading the entire video.
 
 ```bat
 stream dhurandar trailer
 ```
 
-Play audio without opening a video window:
+Play YouTube audio directly from the terminal without opening a video window:
 
 ```bat
 music kalyani
 ```
+
+These commands use `yt-dlp` to resolve YouTube media for playback through MPV.
 
 ### Downloads and Media Utilities
 
