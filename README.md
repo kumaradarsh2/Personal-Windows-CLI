@@ -80,21 +80,33 @@ open i github
 open i chatgpt
 ```
 
-### YouTube Streaming
+## YouTube Streaming
 
-Search for YouTube videos and play them directly through MPV without intentionally downloading the entire video.
-
-```bat
-stream dhurandar trailer
-```
-
-Play YouTube audio directly from the terminal without opening a video window:
+Search YouTube by keywords and play the first matching result directly through MPV without opening a browser or manually copying video URLs.
 
 ```bat
-music kalyani
+stream interstellar trailer
+stream lofi hip hop
+stream the boy next door
 ```
 
-These commands use `yt-dlp` to resolve YouTube media for playback through MPV.
+The `stream` command uses `yt-dlp` to search YouTube, extract the selected video's ID, and launch MPV for playback.
+
+To play a specific YouTube video by URL instead, use `play`:
+
+```bat
+play "https://www.youtube.com/watch?v=VIDEO_ID"
+```
+
+For age-restricted videos, `yt-dlp` and MPV can use an exported YouTube cookies file to authenticate playback, provided the signed-in account is authorized to watch the video. Cookie configuration is optional and must be set up locally.
+
+Keep cookies outside the repository. Never commit cookies or other authentication credentials.
+
+### Play YouTube audio without opening a video window:
+
+```bat
+music lofi music
+```
 
 ### Downloads and Media Utilities
 
